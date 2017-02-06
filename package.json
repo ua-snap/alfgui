@@ -1,0 +1,41 @@
+{
+  "name": "AlfGUI",
+  "version": "0.0.1",
+  "description": "Node based GUI for Alfresco Job Submission",
+  "keywords": [
+    "Node.js",
+    "application",
+    "openshift"
+  ],
+  "author": {
+    "name": "Alec Bennett",
+    "email": "apbennett@alaska.edu",
+    "url": "http://www.snap.uaf.edu/"
+  },
+  "homepage": "http://www.snap.uaf.edu/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ua-snap/alfgui"
+  },
+
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
+  },
+
+  "dependencies": {
+    "express": "~3.4.4",
+    "nib": "*",
+    "jade": "*",
+    "leaflet": "*",
+    "stylus": "*",
+    "mapbox": "*",
+    "nodemailer": "*",
+    "nodemailer-smtp-transport": "*"
+  },
+  "devDependencies": {},
+  "bundleDependencies": [],
+
+  "private": true,
+  "main": "server.js"
+}
