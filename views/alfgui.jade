@@ -5,7 +5,6 @@ block content
   script(src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js')
   link(href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet')
   link(rel='stylesheet', href='stylesheets/jsoneditor.css')
-  link(rel='stylesheet', href='stylesheets/jsoned2.css')
   script(type='text/javascript', src='scripts/jquery.min.js')
   script(type='text/javascript', src='scripts/jquery.jsoneditor.min.js')
   script(type='text/javascript', src='scripts/jsoneditor.js')
@@ -14,11 +13,14 @@ block content
   div 
   div(style="width: 1000px; margin: auto; margin-top: 20px; font-size: 28px; color: #666666;")
     div(style="width: 200px; float: left; margin: 10px; border: 1px solid black; padding: 10px;")
+      #map(style="width: 180px; height: 150px;")
       p Test Text
     div(style="width: 700px; float: right; margin: 10px; border: 1px solid black; padding: 10px;")
       div#editor.json-editor
       textarea#json    
 
   script.
-    var map = L.mapbox.map("map", 'alecbennett.he3o6a7i');
-    map.setView(new L.LatLng(52, -115),3);
+    $(document).ready(function(){
+      var map = L.mapbox.map("map", 'alecbennett.he3o6a7i');
+      map.setView(new L.LatLng(52, -115),3);
+    });

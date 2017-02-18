@@ -12,8 +12,8 @@ body {
 a {
 	text-decoration: none;
 }
-a:link { color: #96a73a; }
-a:visited { color: #96a73a; }
+a:link { color: #006699; }
+a:visited { color: #006699; }
 a:hover { color: #999999; }
 @font-face {
 	font-family: kimberley;
@@ -84,10 +84,11 @@ h3 {
 	font-size: 26px;
 	display: inline-block;
 	float: left;
+	text-shadow: 2px 2px 2px #000;
 }
-#banner a:link { color: #4499ee; }
-#banner a:visited { color: #4499ee; }
-#banner a:hover { color: #3388ee; }
+#banner a:link { color: #96a73a; }
+#banner a:visited { color: #96a73a; }
+#banner a:hover { color: #ddddee; }
 #menu {
 	color: #dedede;
 	font-size: 26px;
