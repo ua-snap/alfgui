@@ -1,4 +1,4 @@
-var json = {
+/*var json = {
     "string": "foo",
     "number": 5,
     "array": [1, 2, 3],
@@ -9,7 +9,7 @@ var json = {
             "numero": 1
         }
     }
-};
+};*/
 
 function printJSON() {
     $('#json').val(JSON.stringify(json));

@@ -1,4 +1,4 @@
-extend layout
+extend layout.pug
 block content
   script(type='text/javascript', src='http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js')
   link(rel='stylesheet', href='http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css')
@@ -9,20 +9,23 @@ block content
   script(type='text/javascript', src='scripts/jquery.jsoneditor.js')
   script(type='text/javascript', src='scripts/jsoneditor.js')
   script(type='text/javascript', src='scripts/json2.js')
+  script(type='text/javascript', src='scripts/alfgui.js')
   
 
   div 
-  div(style="width: 1000px; margin: auto; margin-top: 20px; font-size: 28px; color: #666666; overflow: auto;")
+  div(style="width: 1000px; margin: auto; color: #666666; overflow: auto;")
     div(style="width: 250px; float: left; margin: 10px; border: 1px solid black; padding: 10px;")
       #map(style="width: 250px; height: 200px; background-color: #eeeeee")
       p Test Text
     div(style="width: 650px; float: right; margin: 10px; border: 1px solid black; padding: 10px; overflow: auto")
-      p Alfresco Configuration
+      p(style="font-size: 28px;") Alfresco Configuration
       #editor.json-editor
       textarea#json(style="width: 640px; height: 200px;")
 
+      form(action="/launch", method="post")
+        input(type="submit",value="Launch Job")
+
   script.
-    //$(document).ready(function(){
       var map = L.mapbox.map("map", 'alecbennett.he3o6a7i');
       map.setView(new L.LatLng(62, -135),2);
-    //});
+      var json = loadFIF();

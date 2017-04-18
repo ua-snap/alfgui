@@ -34,6 +34,7 @@ h3 {
 }
 #content header h1 {
         font-size: 30px;
+	margin: 0px;
 }
 
 @media print {

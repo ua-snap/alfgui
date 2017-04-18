@@ -1,10 +1,12 @@
 #!/bin/env node
-var express = require('express')
-  , stylus = require('stylus')
-  , nib = require('nib')
+var express = require('express'),
+  bodyParser = require('body-parser'),
+  fs = require('fs'),
+  stylus = require('stylus'),
+  nib = require('nib'),
+  morgan = require('morgan'),
+  server = express()
 var util = require('util')
-var fs = require("fs")
-var server = express()
 
 
 function compile(str, path) {
@@ -14,15 +16,11 @@ function compile(str, path) {
 }
 
 server.set('views', __dirname + '/views')
-server.set('view engine', 'jade')
-server.use(express.logger('dev'))
-server.use(stylus.middleware(
-  { src: __dirname + '/public'
-  , compile: compile
-  }
-))
+server.set('view engine', 'pug')
 server.use(express.static(__dirname + '/public'))
-server.use(express.bodyParser());
+server.use(bodyParser.urlencoded({ extended: false }))
+server.use(bodyParser.json())
+server.use(morgan('combined'))
 
 
 server.get('/', function (req, res) {
@@ -34,5 +32,6 @@ server.get('/', function (req, res) {
 
 
 var port = process.env.OPENSHIFT_NODEJS_PORT || 8080  
-, ip = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+, ip = process.env.OPENSHIFT_NODEJS_IP || "0.0.0.0";
 server.listen(port, ip);
+console.log('Server running on http://%s:%s', ip, port);
